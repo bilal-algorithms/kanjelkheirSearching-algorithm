@@ -23,6 +23,6 @@ then the values that you providet after that are k numbers which would be the in
 
 ## example:
 ```bash
-10 7 // 10 is the number of integers in the array and 7 is the target that you are searching for
+10 7 # 10 is the number of integers in the array and 7 is the target that you are searching for
 1 2 3 4 5 6 7 8 9 10 # these are the values of the array
 ```
