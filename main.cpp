@@ -6,20 +6,29 @@ bool Even(int n);
 
 int main() {
     ios::sync_with_stdio(0); cin.tie(0);
+    
     int k, t;
     cin >> t >> k;
     vector<int> vec(t);
-    for (int i = 0; i < t; i++)
-    {
+    
+    for (int i = 0; i < t; i++) {
         cin >> vec[i];
     }
-    int mid = t / 2;
-    if (vec[mid - 1] == k) {
+
+    if (vec[t - 1] == k) {
+        cout << "Found at index: " << t - 1 << '\n';
+        return 0;
+    }
+
+    int mid = t / 2; 
+
+    if (vec[mid] == k) {
         cout << "Found at index: " << mid << '\n';
         return 0;
     }
+
     if (Even(t)) {
-        for (int i = 0, j = (t - 1); i < mid, j > mid; i++, j--) {
+        for (int i = 0, j = t - 1; i < mid && j > mid; i++, j--) {
             if (vec[i] == k) {
                 cout << "Found at index: " << i << '\n';
                 return 0;
@@ -29,7 +38,7 @@ int main() {
             }
         }
     } else {
-        for (int i = 1, j = (t - 1); i < mid, j > mid; i++, j--) {
+        for (int i = 0, j = t - 1; i <= mid && j >= mid; i++, j--) {
             if (vec[i] == k) {
                 cout << "Found at index: " << i << '\n';
                 return 0;
@@ -39,15 +48,11 @@ int main() {
             }
         }
     }
+
     cout << "Not Found!" << '\n';
     return 0;
-
 }
 
 bool Even(int n) {
-    if (n % 2 == 0) {
-        return true;
-    } else {
-        return false;
-    }
+    return (n % 2 == 0);
 }
